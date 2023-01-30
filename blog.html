@@ -1,0 +1,42 @@
+<html>
+
+<head>
+  <title>Coming Soon</title>
+  <link href="blog.css" rel="stylesheet" type="text/css" ; </head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dosis&display=swap" rel="stylesheet">
+
+<body>
+  <header>
+    <div class="hero">
+      <p>Preparing For Liftoff...</p>
+      <h1>Launch Date - February 20th, 2022</h1>
+      <hr>
+      <p id="launch"></p>
+    </div>
+  </header>
+</body>
+<script>
+  var countDownDate = new Date("Feb 20, 2023, 12:00:00").getTime();
+
+  var x = setInterval(function () {
+    var now = new Date().getTime();
+    var distance = countDownDate - now;
+
+    let days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    let minutes = Math.floor((distance % (1000 * 60 * 60) / (1000 * 60)));
+    let seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    document.getElementById("launch").innerHTML = days + 'd ' + hours + 'h ' + minutes + 'm ' + seconds + 's ';
+
+    if (distance < 0) {
+      clearInterval(x);
+      document.getElementById("launch").innerHTML = "EXPIRED";
+    }
+
+  }, 1000);
+</script>
+
+</html>
